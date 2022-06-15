@@ -1,0 +1,25 @@
+---
+
+- name: manage webserver
+  hosts: appserver
+  remote_user: centos
+  gather_facts: true
+  become: true
+  
+
+  roles:
+  - webserver
+
+- name: manage user
+  hosts: jenkins
+  remote_user: centos
+  become: true
+  vars:
+    user_name: ganeshhp
+
+  tasks:
+  - name: manage users
+    user:
+       name: "{{ user_name }}"
+       state: present
+

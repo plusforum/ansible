@@ -1,0 +1,4 @@
+*.war
+group_vars
+host_vars
+
